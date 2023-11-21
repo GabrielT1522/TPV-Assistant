@@ -49,7 +49,7 @@
     <button class="open-button" onclick="openForm()">TPV Assistant</button>
 
     <div class="chat-popup" id="myForm">
-        <form  class="form-container" onsubmit="return false">
+        <form class="form-container" onsubmit="return false">
             <div class="tab">
                 <button class="tablinks" onclick="showTab(event, 'FAQ')" id="defaultOpen">FAQ</button>
                 <button class="tablinks" onclick="showTab(event, 'CHAT')">CHAT</button>
@@ -58,15 +58,12 @@
             <!-- FAQ Tab -->
             <div id="FAQ" class="tabcontent">
                 <div id="FAQ-text" class="editable">
-                    <p class="chat-message"><strong>TPV:</strong> Hello how can I help you?</p>
+                    
                 </div>
-                <button id="UML-question" class="pill-button" onclick="FAQResponse('UML-question')">What is UML?</button>
-                <button id="TPV-question" class="pill-button" onclick="FAQResponse('TPV-question')">What is TPV?</button>
-                <button id="OCL-question" class="pill-button" onclick="FAQResponse('OCL-question')">What is OCL?</button>
-                <button id="USE-question" class="pill-button" onclick="FAQResponse('USE-question')">What is USE?</button>
-                <textarea id="FAQ-message" placeholder="Type message.." name="msg" ></textarea>
+                <div id="FAQ-buttons"></div>
+                <textarea id="FAQ-message" placeholder="Type message.." name="msg"></textarea>
 
-                <button type="submit" class="btn" onclick="submitPrompt('FAQ-text')">Send</button>
+                <button type="submit" class="btn" onclick="submitFAQPrompt()">Send</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </div>
 
@@ -76,8 +73,8 @@
                     <p class="chat-message"><strong>TPV:</strong> Hello how can I help you?</p>
                 </div>
 
-                <textarea id="CHAT-message" placeholder="Type message.." name="msg" ></textarea>
-                <button type="submit" class="btn" onclick="submitPrompt('CHAT-text')">Send</button>
+                <textarea id="CHAT-message" placeholder="Type message.." name="msg"></textarea>
+                <button type="submit" class="btn" onclick="submitCHATPrompt()">Send</button>
                 <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
             </div>
 
