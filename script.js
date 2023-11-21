@@ -134,7 +134,7 @@ async function query(data) {
   const response = await fetch(
     "https://api-inference.huggingface.co/models/meta-llama/Llama-2-7b-hf",
     {
-      headers: { Authorization: "Bearer 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" },
+      headers: { Authorization: getKey() },
       method: "POST",
       body: JSON.stringify(data),
     }
