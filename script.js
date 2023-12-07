@@ -148,8 +148,6 @@ function matchQuestion(userQuestion) {
       } else {
         cleanUserQuestion = userQuestion.replace(/[&\/\\#,+()$~%.":*?<>{}]/g, '');
         cleanBankQuestion = questions[question].replace(/[&\/\\#,+()$~%.":*?<>{}]/g, '');
-        //console.log(userQuestion);
-        //console.log(question)
         currentSimilarValue = similarity(userQuestion, question);
         if (currentSimilarValue > maxSimilarValue) {
           maxSimilarValue = currentSimilarValue;
@@ -168,15 +166,16 @@ function matchQuestion(userQuestion) {
 }
 
 function submitFAQPrompt() {
-  let prompt = document.getElementById("FAQ-message").value;
+  let prompt = document.getElementById("FAQ-message");
   if (prompt === null) {
     document.getElementById("FAQ-text").innerHTML += chatMessage('Please enter a valid question.');
     return;
   } else {
     //let textarea = document.getElementById("FAQ-text");
-    matchQuestion(prompt);
+    matchQuestion(prompt.value);
+    prompt.value = "";
   }
-  prompt = "";
+  
 }
 
 const openaiApiEndpoint = "https://api.openai.com/v1/engines/text-davinci-003/completions";
